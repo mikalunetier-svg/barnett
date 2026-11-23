@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- Security Headers (Protection contre XSS, Clickjacking, MIME sniffing) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: blob:; object-src 'none'; frame-ancestors 'none'; base-uri 'self';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>BARNETT GREENMAN — Lunetterie Haute Facture</title>
+  
+  <!-- Polices Éditoriales -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar (Subtile & Chic) -->
+  <aside class="top-banner">
+    <p>Livraison offerte en France & en Europe — Retours gratuits sous 14 jours</p>
+  </aside>
+
+  <!-- Header Responsive : Desktop 3 colonnes / Mobile 2 rangées optimisées -->
+  <header class="site-header">
+    <div class="header-inner">
+      <!-- 3 ONGLETS DESKTOP -->
+      <nav class="nav-left" aria-label="Navigation principale">
+        <button class="nav-tab" data-nav="solaires">SOLAIRES</button>
+        <button class="nav-tab active" data-nav="optiques">OPTIQUES</button>
+        <button class="nav-tab" data-nav="marque">LA MARQUE</button>
+      </nav>
+
+      <!-- Logo Central -->
+      <div class="brand-logo">
+        <a href="#" id="brandLogoHome" aria-label="Barnett Greenman Accueil">
+          <span class="logo-text">BARNETT GREENMAN</span>
+        </a>
+      </div>
+
+      <!-- Actions Droite : Compte Client & Panier -->
+      <div class="nav-right">
+        <button id="accountBtn" class="account-trigger" aria-label="Mon espace client">
+          <span class="account-label">COMPTE</span>
+          <span class="account-indicator" id="accountBadge" style="display: none;">•</span>
+        </button>
+
+        <button id="cartBtn" class="cart-trigger" aria-label="Voir le panier">
+          <span class="cart-label">PANIER</span>
+          <span class="cart-count">(<span id="cartCount">0</span>)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Barre de Navigation Mobile Tactile (affichée uniquement <= 768px) -->
+    <nav class="mobile-nav-bar" aria-label="Navigation mobile">
+      <button class="mobile-nav-tab" data-nav="solaires">SOLAIRES</button>
+      <button class="mobile-nav-tab active" data-nav="optiques">OPTIQUES</button>
+      <button class="mobile-nav-tab" data-nav="marque">LA MARQUE</button>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Collection View (Optiques / Solaires) -->
+    <div id="catalogView">
+      <section class="collection-hero">
+        <div class="hero-container">
+          <span class="hero-category" id="heroCategoryLabel">COLLECTION PERMANENTE</span>
+          <h1 class="hero-title" id="heroTitle">Optiques</h1>
+          <p class="hero-description" id="heroDescription">
+            Façonnées à la main en acétate biologique d'exception. Des silhouettes architecturales aux volumes affirmés au tarif unique de 215 €.
+          </p>
+
+          <!-- Minimal Filter Bar avec Défilement Horizontal Tactile sur Mobile -->
+          <div class="filter-bar">
+            <div class="filter-scroll-wrapper">
+              <div class="filter-group" id="filterGroup">
+                <button class="filter-pill active" data-filter="all">TOUT VOIR (<span id="totalFilterCount">5</span>)</button>
+                <button class="filter-pill" data-filter="pantos">PANTOS & COURONNES</button>
+                <button class="filter-pill" data-filter="carree">CARRÉES & ÉPAISSES</button>
+                <button class="filter-pill" data-filter="geometrique">GÉOMÉTRIQUES & AVANT-GARDE</button>
+              </div>
+            </div>
+            <div class="collection-count">
+              <span id="activeCount">5 montures — 215 €</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Product Grid : Responsive 2 colonnes sur mobile / 3 sur desktop -->
+      <section class="catalog-section">
+        <div class="catalog-grid" id="productGrid">
+          <!-- Injected via JavaScript from sanitized data -->
+        </div>
+      </section>
+    </div>
+
+    <!-- La Marque Section (Affichée ou scrollée selon l'onglet) -->
+    <section class="editorial-section" id="marqueSection">
+      <div class="editorial-container">
+        <div class="editorial-content">
+          <span class="editorial-tag">LA MAISON BARNETT GREENMAN</span>
+          <h2 class="editorial-title">L'audace architecturale, la justesse du prix.</h2>
+          <p class="editorial-text">
+            Née de la volonté d'offrir une haute lunetterie sans compromis, Barnett Greenman conçoit des montures de caractère sculptées dans un acétate de cellulose italien de haute densité. Nous supprimons les intermédiaires pour proposer un tarif juste et transparent de <strong>215 €</strong>, verres et ajustage compris chez nos opticiens agréés.
+          </p>
+          <div class="editorial-metrics">
+            <div class="metric-item">
+              <span class="metric-val">215 €</span>
+              <span class="metric-label">Prix unique atelier</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-val">100%</span>
+              <span class="metric-label">Acétate biologique de coton</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-val">72 h</span>
+              <span class="metric-label">Polissage manuel au tonneau</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Side Drawer Product Detail Panel (Fiche Produit Épurée & Responsive) -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="product-drawer" id="productDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <span class="drawer-title-sub">DÉTAILS DU MODÈLE</span>
+      <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Fermer la vue produit">&times;</button>
+    </div>
+    <div class="drawer-body" id="drawerBody">
+      <!-- Injected dynamically -->
+    </div>
+  </aside>
+
+  <!-- Cart Slide-Over Drawer -->
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <span class="drawer-title-sub">VOTRE SÉLECTION (<span id="cartDrawerCount">0</span>)</span>
+      <button class="close-drawer-btn" id="closeCartBtn" aria-label="Fermer le panier">&times;</button>
+    </div>
+    <div class="cart-body">
+      <div class="cart-items" id="cartItemsList">
+        <p class="empty-cart-message">Votre panier est actuellement vide.</p>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display: none;">
+      <div class="cart-total-row">
+        <span>Sous-total</span>
+        <span id="cartTotalPrice" class="cart-total-val">0 €</span>
+      </div>
+      <p class="cart-shipping-notice">Frais de port et étui rigide cuir inclus.</p>
+      <button class="btn-checkout" id="checkoutBtn">VALIDER LA COMMANDE (215 €)</button>
+    </div>
+  </aside>
+
+  <!-- Espace Client & Suivi de Commande Responsive -->
+  <aside class="account-drawer" id="accountDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <span class="drawer-title-sub" id="accountDrawerTitle">ESPACE CLIENT</span>
+      <button class="close-drawer-btn" id="closeAccountBtn" aria-label="Fermer l'espace client">&times;</button>
+    </div>
+    <div class="drawer-body" id="accountDrawerBody">
+      <!-- Vue Non Connecté -->
+      <div id="accountAuthView">
+        <div class="auth-tabs">
+          <button class="auth-tab-btn active" id="tabBtnLogin">CONNEXION</button>
+          <button class="auth-tab-btn" id="tabBtnRegister">CRÉER UN COMPTE</button>
+        </div>
+
+        <form id="customerLoginForm" class="customer-form">
+          <div class="form-field">
+            <label for="loginEmail">Adresse e-mail</label>
+            <input type="email" id="loginEmail" placeholder="votre@email.com" required>
+          </div>
+          <div class="form-field">
+            <label for="loginPassword">Mot de passe</label>
+            <input type="password" id="loginPassword" placeholder="••••••••" required>
+          </div>
+          <div class="customer-form-error" id="loginErrorMsg" style="display: none;"></div>
+          <button type="submit" class="btn-customer-submit">SE CONNECTER</button>
+          
+          <div class="demo-account-box">
+            <span>Tester l'expérience client :</span>
+            <button type="button" class="btn-demo-login" id="btnQuickDemoLogin">Connexion démo (1 clic)</button>
+          </div>
+        </form>
+
+        <form id="customerRegisterForm" class="customer-form" style="display: none;">
+          <div class="form-grid-2">
+            <div class="form-field">
+              <label for="regFirstName">Prénom</label>
+              <input type="text" id="regFirstName" placeholder="Arthur" required>
+            </div>
+            <div class="form-field">
+              <label for="regLastName">Nom</label>
+              <input type="text" id="regLastName" placeholder="Rimbaud" required>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="regEmail">Adresse e-mail</label>
+            <input type="email" id="regEmail" placeholder="votre@email.com" required>
+          </div>
+          <div class="form-field">
+            <label for="regPassword">Créer un mot de passe</label>
+            <input type="password" id="regPassword" placeholder="Au moins 6 caractères" required minlength="6">
+          </div>
+          <div class="customer-form-error" id="registerErrorMsg" style="display: none;"></div>
+          <button type="submit" class="btn-customer-submit">CRÉER MON COMPTE</button>
+        </form>
+      </div>
+
+      <!-- Vue Connecté -->
+      <div id="accountDashboardView" style="display: none;">
+        <div class="client-profile-header">
+          <div>
+            <span class="client-greeting">Bonjour,</span>
+            <h3 class="client-name" id="clientDisplayName">Arthur Rimbaud</h3>
+            <span class="client-email" id="clientDisplayEmail">arthur@example.com</span>
+          </div>
+          <button class="btn-client-logout" id="btnCustomerLogout">Déconnexion</button>
+        </div>
+
+        <div class="client-section-divider"></div>
+
+        <div class="orders-section">
+          <div class="orders-header">
+            <h4>SUIVI DE COMMANDE</h4>
+            <span class="orders-count" id="ordersCountBadge">1 commande</span>
+          </div>
+
+          <div id="ordersListContainer">
+            <!-- Injected dynamically -->
+          </div>
+        </div>
+
+        <div class="client-reassurance-box">
+          <div class="reassurance-title">Assistance Personnalisée</div>
+          <p>Une question sur les verres à votre vue ou la livraison ? Notre atelier vous répond sous 2h à <a href="mailto:contact@barnettgreenman.com">contact@barnettgreenman.com</a>.</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Modale Authentification Admin Secrète (Invisible) -->
+  <div class="auth-modal" id="adminAuthModal" aria-hidden="true">
+    <div class="auth-dialog">
+      <div class="auth-header">
+        <span class="auth-tag">ESPACE RESTREINT</span>
+        <h3>Accès Studio Administrateur</h3>
+        <p class="auth-desc">Veuillez renseigner votre clé d'accès sécurisée pour modifier le catalogue.</p>
+      </div>
+      <form id="adminAuthForm">
+        <div class="auth-field">
+          <input type="password" id="adminPasswordInput" placeholder="Mot de passe administrateur" autocomplete="current-password" required>
+        </div>
+        <div class="auth-error" id="authErrorMsg" style="display: none;">
+          Mot de passe incorrect ou tentative bloquée.
+        </div>
+        <div class="auth-actions">
+          <button type="button" class="btn-auth-cancel" id="closeAuthModalBtn">Annuler</button>
+          <button type="submit" class="btn-auth-submit">Déverrouiller</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Interface Administration du Catalogue (Studio) -->
+  <div class="admin-modal" id="adminModal" aria-hidden="true">
+    <div class="admin-modal-dialog">
+      <div class="admin-modal-header">
+        <div class="admin-header-title">
+          <span class="admin-tag">GESTION SÉCURISÉE DU CATALOGUE</span>
+          <h2>Studio Barnett Greenman</h2>
+        </div>
+        <div class="admin-header-actions">
+          <button class="btn-primary-action" id="btnAddNewProduct">+ Ajouter</button>
+          <button class="btn-secondary-action" id="btnExportJson">JSON</button>
+          <button class="btn-secondary-action" id="btnResetDefault">Reset</button>
+          <button class="btn-logout" id="btnLogoutAdmin" title="Déconnecter la session admin">Sortir</button>
+          <button class="close-admin-btn" id="closeAdminBtn" aria-label="Fermer l'interface admin">&times;</button>
+        </div>
+      </div>
+
+      <div class="admin-modal-body">
+        <div class="admin-form-container" id="adminFormContainer" style="display: none;">
+          <h3 class="form-title" id="formTitle">Ajouter une nouvelle monture</h3>
+          <form id="productForm">
+            <input type="hidden" id="editProductId" value="">
+
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="fName">Nom du modèle (ex: THE BIGGIE)</label>
+                <input type="text" id="fName" required placeholder="THE NEW MODEL" maxlength="40">
+              </div>
+
+              <div class="form-field">
+                <label for="fCategory">Catégorie</label>
+                <select id="fCategory" required>
+                  <option value="optiques">Optiques</option>
+                  <option value="solaires">Solaires</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="fPrice">Prix (€)</label>
+                <input type="number" id="fPrice" required value="215" min="1" max="5000" step="1">
+              </div>
+
+              <div class="form-field">
+                <label for="fShapeCategory">Forme (filtre)</label>
+                <select id="fShapeCategory" required>
+                  <option value="pantos">Pantos & Couronne</option>
+                  <option value="carree">Carrée & Épaisse</option>
+                  <option value="geometrique">Géométrique & Avant-Garde</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="fShapeDetail">Nom du style</label>
+                <input type="text" id="fShapeDetail" required placeholder="Crown Pantos Sculptée" maxlength="50">
+              </div>
+
+              <div class="form-field">
+                <label for="fColorway">Coloris</label>
+                <input type="text" id="fColorway" required placeholder="Ambre Cognac & Noir" maxlength="50">
+              </div>
+
+              <div class="form-field">
+                <label for="fBadge">Badge</label>
+                <input type="text" id="fBadge" value="Nouvelle Collection" maxlength="30">
+              </div>
+
+              <div class="form-field">
+                <label for="fImageFile">Photo (JPEG, PNG, WEBP - Max 2.5 Mo)</label>
+                <input type="file" id="fImageFile" accept="image/jpeg,image/png,image/webp">
+                <small class="field-hint">Ou packshot existant :</small>
+                <select id="fImagePreset">
+                  <option value="">-- Conserver ou choisir un packshot --</option>
+                  <option value="images/products/the-biggie.jpeg">THE BIGGIE (Écaille havane carrée)</option>
+                  <option value="images/products/the-brooks.jpeg">THE BROOKS (Dégradé noir & cognac pantos)</option>
+                  <option value="images/products/the-franck.jpeg">THE FRANCK (Ambre miel crown pantos)</option>
+                  <option value="images/products/the-lizie.jpeg">THE LIZIE (Octogonale douce flammée)</option>
+                  <option value="images/products/the-mike.jpeg">THE MIKE (Hexagonale biseautée)</option>
+                  <option value="images/products/the-spike.jpeg">THE SPIKE (Losange avant-garde)</option>
+                  <option value="images/products/the-whoopie.jpeg">THE WHOOPIE (Oversize miel translucide)</option>
+                  <option value="images/products/the-crown.jpeg">THE CROWN (Couronne bicolore)</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="fCalibre">Calibre verre</label>
+                <input type="text" id="fCalibre" value="48 mm" maxlength="15">
+              </div>
+
+              <div class="form-field">
+                <label for="fBridge">Pont nasal</label>
+                <input type="text" id="fBridge" value="21 mm" maxlength="15">
+              </div>
+
+              <div class="form-field">
+                <label for="fTemple">Branches</label>
+                <input type="text" id="fTemple" value="145 mm" maxlength="15">
+              </div>
+
+              <div class="form-field">
+                <label for="fMaterial">Matière</label>
+                <input type="text" id="fMaterial" value="Acétate biologique italien 8 mm" maxlength="60">
+              </div>
+
+              <div class="form-field" style="grid-column: 1 / -1;">
+                <label for="fDescription">Description éditoriale</label>
+                <textarea id="fDescription" rows="3" placeholder="Description de la silhouette..." maxlength="400"></textarea>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn-cancel" id="btnCancelForm">Annuler</button>
+              <button type="submit" class="btn-save">Enregistrer</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="admin-table-container">
+          <div class="table-header-info">
+            <span class="table-count"><span id="adminProductCount">8</span> montures</span>
+            <span class="table-tip">Sauvegardé localement.</span>
+          </div>
+
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Aperçu</th>
+                <th>Modèle</th>
+                <th>Catégorie</th>
+                <th>Prix</th>
+                <th style="text-align: right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminTableBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Minimalist Luxury Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">BARNETT GREENMAN</span>
+        <p class="footer-slogan">Haute lunetterie contemporaine — Paris.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#" class="footer-tab" data-nav="solaires">Solaires</a>
+        <a href="#" class="footer-tab" data-nav="optiques">Optiques</a>
+        <a href="#" class="footer-tab" data-nav="marque">La Marque</a>
+        <a href="#" id="footerAccountLink">Espace Client</a>
+        <a href="mailto:contact@barnettgreenman.com">Contact</a>
+      </div>
+      <div class="footer-bottom">
+        <span id="secretTriggerCopyright" title="" style="user-select: none; cursor: default;">
+          © 2026 Barnett Greenman. Tarif unique atelier 215 €.
+        </span>
+        <span>Conçu avec rigueur & minimalisme.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
